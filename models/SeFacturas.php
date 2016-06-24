@@ -35,12 +35,12 @@ class SeFacturas extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['Nu_facturas', 'id_eps', 'Rips_facturas', 'Mega_facturas', 'Estado', 'Oficio', 'Redicados'], 'required'],
+            [['Nu_facturas', 'id_eps', 'Rips_facturas', 'Mega_facturas', 'Estado', 'Oficio', 'Redicados','fecha'], 'required'],
             [['id_eps', 'Estado'], 'integer'],
             [['fecha'], 'safe'],
             [['Nu_facturas'], 'string', 'max' => 40],
             [['Rips_facturas', 'Mega_facturas', 'Oficio', 'Redicados'], 'string', 'max' => 60],
-            [['Id_eps'], 'exist', 'skipOnError' => true, 'targetClass' => SeEps::className(), 'targetAttribute' => ['Id_eps' => 'id_eps']],
+            [['id_eps'], 'exist', 'skipOnError' => true, 'targetClass' => SeEps::className(), 'targetAttribute' => ['id_eps' => 'id_eps']],
         ];
     }
 
